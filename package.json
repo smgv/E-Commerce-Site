@@ -11,6 +11,7 @@
   "author": "Patra Ganesh Sureshchandra",
   "license": "ISC",
   "devDependencies": {
+    "dotenv": "^7.0.0",
     "nodemon": "^1.18.3"
   },
   "dependencies": {

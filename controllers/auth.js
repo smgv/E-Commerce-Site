@@ -1,12 +1,15 @@
+require('dotenv').config();
+
 const bcrypt = require('bcryptjs');
 const nodemailer = require('nodemailer');
 const sendgridTransport = require('nodemailer-sendgrid-transport');
+const NODE_ENV = process.env.SECRET_API;
 
 const User = require('../models/user');
 // transporter tells nodemaider how your emails will be delivered
 const transporter = nodemailer.createTransport(sendgridTransport({
   auth: {
-    api_key: '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'
+    api_key: NODE_ENV
   }
 }));
 
@@ -90,6 +93,7 @@ exports.postSignup = (req, res, next) => {
           return user.save();
         })
         .then(result => {
+          //console.log(NODE_ENV);
           res.redirect('/login');
           return transporter.sendMail({
             to: email,
