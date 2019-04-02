@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // // const a = cb => {
 // //     var arr = [{"title":"book"},{"title":"CD"},{"title":"Pencil"},{"title":"Dress"},{"title":"Music"}];
 // //     cb(arr);
@@ -107,3 +108,6 @@ mongoose
 'mongodb+srv://ganeshpatra:Ganesh96@cluster0-s4tuy.mongodb.net/shop?retryWrites=true';
 
   //5c8fa3e02cd8471d483c7d73
+=======
+
+>>>>>>> 79b44b4de79df8a0c57a2e72d0cfee99af481b19
