@@ -27,7 +27,8 @@ exports.getLogin = (req, res, next) => {
     path: '/login',
     pageTitle: 'Login',
     errorMessage: message,
-    oldInput : {email : ''}
+    oldInput : {email : ''},
+    validationErrors: []
   });
 };
 
@@ -42,7 +43,8 @@ exports.getSignup = (req, res, next) => {
     path: '/signup',
     pageTitle: 'Signup',
     errorMessage: message,
-    oldInput : {email : ''}
+    oldInput : {email : ''},
+    validationErrors : []
   });
 };
 
@@ -57,7 +59,8 @@ exports.postLogin = (req, res, next) => {
         path: '/login',
         pageTitle: 'Login',
         errorMessage: errors.array()[0].msg,
-        oldInput : {email : email}
+        oldInput : {email : email},
+        validationErrors: errors.array()
       });
   }
 
@@ -97,7 +100,8 @@ exports.postSignup = (req, res, next) => {
         path: '/signup',
         pageTitle: 'Signup',
         errorMessage: errors.array()[0].msg,
-        oldInput : {email : email}
+        oldInput : {email : email},
+        validationErrors : errors.array()
       });
   }
 
