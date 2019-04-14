@@ -22,11 +22,13 @@ router.post('/login',
                             return Promise.reject('Email Dose not exist');
                         }
                     })
-            }),
+            })
+            .normalizeEmail(),
 
         body('password', 'Please enter the password with 5 character and it should be alphanumeric')
             .isLength({ min: 5 })
             .isAlphanumeric()
+            .trim()
     ],
     authController.postLogin);
 
@@ -42,13 +44,16 @@ router.post('/signup',
                             return Promise.reject('E-mail exists already, please pick different one.');
                         }
                     });
-            }),
+            })
+            .normalizeEmail(),
 
         body('password', 'Please enter the password with 5 character and it should be alphanumeric')
             .isLength({ min: 5 })
-            .isAlphanumeric(),
+            .isAlphanumeric()
+            .trim(),
 
         body('confirmPassword')
+            .trim()
             .custom((value, { req }) => {
                 if (value !== (req.body.password)) {
                     throw new Error("Password have to match!");
